@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class MoviesProvider;
+
+typedef void(^CompletionBlock)(id data);
+typedef void(^ErrorBlock)(id data, NSError *error);
+
 @interface LoadMoviesIteractor : NSObject
+
+@property (nonatomic, strong) MoviesProvider *moviesProvider;
+
+- (void)loadMoviesWithCompletion:(CompletionBlock)completionBlock error:(ErrorBlock)errorBlock;
 
 @end

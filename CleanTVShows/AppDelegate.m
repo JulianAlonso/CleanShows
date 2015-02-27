@@ -24,6 +24,14 @@
     
     self.coreDataStack = [[CoreDataStack alloc] initWithModelName:@"CleanTVShows"];
     
+    MoviesProvider *moviesProvider = [[MoviesProvider alloc] init];
+    
+    [moviesProvider loadShowsWithSucces:^(id data) {
+        
+    } andError:^(id data, NSError *error) {
+        
+    }];
+    
     return YES;
 }
 

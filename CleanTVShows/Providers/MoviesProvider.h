@@ -7,13 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "BaseProvider.h"
+
 
 typedef void(^CompletionBlock)(id data);
 typedef void(^ErrorBlock)(id data, NSError *error);
 
 @interface MoviesProvider : BaseProvider
 
-- (void)loadShowsWithSucces:(CompletionBlock)succesBlock andError:(ErrorBlock)errorBlock;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
+- (void)loadMoviesWithSucces:(CompletionBlock)succesBlock andError:(ErrorBlock)errorBlock;
 
 @end
